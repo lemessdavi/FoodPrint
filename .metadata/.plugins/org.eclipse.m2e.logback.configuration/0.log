@@ -1,0 +1,3 @@
+2021-12-07 14:44:30,914 [Worker-10: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2021-12-07 14:53:02,238 [main] WARN  org.eclipse.jgit.lib.Repository - close() called when useCnt is already zero for Repository[/Users/lemes/git/FoodPrint/.git]
+2021-12-07 14:54:49,481 [Worker-59: Remove Repositories] WARN  org.eclipse.jgit.lib.Repository - close() called when useCnt is already zero for Repository[/Users/lemes/Documents/FoodPrint/FoodPrint/.git]
