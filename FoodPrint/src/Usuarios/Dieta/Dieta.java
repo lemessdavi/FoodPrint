@@ -1,3 +1,4 @@
+package Usuarios.Dieta;
 
 public class Dieta {
 	private int pontos;

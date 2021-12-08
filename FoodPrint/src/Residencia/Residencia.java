@@ -1,50 +1,52 @@
+package Residencia;
 
 public class Residencia {
 	private int numeroMoradores;
 	private int tamanhoResidencia; // 0 -> apartamento, 1-> small house, 2-> medium house, 3->large house
 	private int pontos;
+	private Agua consumoAgua;	
 	
 	public Residencia(int numeroMoradores, int tamanhoResidencia) {
 		this.numeroMoradores = numeroMoradores;
 		this.tamanhoResidencia = tamanhoResidencia;
 		
+		pontos += getPontosNumeroMoradores();
+		pontos += getPontosNumeroResidencia();
+		
+		
+	}
+	
+	private int getPontosNumeroMoradores() {
 		if (numeroMoradores >5) {
 			pontos+= 2;
 		} 
 		if (numeroMoradores > 0) {
 		switch (numeroMoradores) {
 		case 1: 
-			pontos += 12;
-			break;
+			return 12;
 		case 2: 
-			pontos += 10;
-			break;
+			return 10;
 		case 3: 
-			pontos += 8;
-			break;
+			return 8;
 		case 4: 
-			pontos += 6;
-			break;
+			return  6;
 		case 5: 
-			pontos += 4;
-			break;
+			return 4;
 		}
-		}else {
-			throw new IllegalArgumentException("Unexpected value: " + tamanhoResidencia);
 		}
+		throw new IllegalArgumentException("Unexpected value: " + tamanhoResidencia);
+	}
+	
+	private int getPontosNumeroResidencia() {
 		switch (tamanhoResidencia) {
 		case 0:
-			pontos += 2;
-			break;
+			return 2;
 		case 1:
-			pontos += 4;
-			break;
+			return 4;
 		case 2:
-			pontos += 6;
-			break;
+			return 6;
 		case 3:
-			pontos += 8;
-			break;
+			return 8;
 		default:
 			throw new IllegalArgumentException("Unexpected value: " + tamanhoResidencia);
 		}
