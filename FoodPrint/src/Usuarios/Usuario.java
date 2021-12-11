@@ -7,12 +7,32 @@ import Residencia.Residencia;
 import Usuarios.Dieta.Dieta;
 
 public abstract class Usuario {
-	private String nome;
-	private int idade;
+	protected String nome;
+	protected int idade;
 	private int pontosTotais;
-	private Residencia residencia;
-	private Dieta dieta;
-	private Agua consumoAgua; //acho que nao precisa disso aqui, da pra acessar com residencia.agua.getPontos.
+	protected Residencia residencia;
+	protected Dieta dieta;
+	
+	public String getNome() {
+		return nome;
+	}
+	
+	public int getIdade() {
+		return idade;
+	}
+	
+	public int getPontosTotais() {
+		return pontosTotais;
+	}
+	
+	public Residencia getResidencia() {
+		return residencia;
+	}
+	
+	public Dieta getDieta() {
+		return dieta;
+	}
+	
 	
 }
 

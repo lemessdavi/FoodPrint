@@ -14,33 +14,35 @@ public class Dieta {
 		this.vegan = vegan;
 		this.vegetarian = vegetarian;
 		this.procedenciaAlimentos = procedencia;
+		pontos+= pontosDieta();
 		
+	}
+	
+	public int pontosDieta() {
+		pontos = 0;
 		if (consumoCarne) {
-			pontos += 10;
+			return 10;
 		} 
 		if(!consumoCarne){
-			pontos += 8;
+			return 8;
 		}
 		if(vegetarian) {
-			pontos += 4;
+			return 4;
 		}
 		if(vegan) {
-			pontos += 2;
-		}
-		switch (procedencia) {
-		case 0: 
-			pontos+= 12;
-			break;
-		case 1:
-			pontos+= 6;
-			break;
-		case 2:
-			pontos+= 2;
-			break;
-		default:
-			throw new IllegalArgumentException("Unexpected value: " + procedencia);
+			return 2;
 		}
 		
+		switch (procedenciaAlimentos) {
+		case 0: 
+			return 12;
+		case 1:
+			return 6;
+		case 2:
+			return 2;
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + procedenciaAlimentos);
+		}
 	}
 	
 	public int getPontos() {
@@ -56,5 +58,24 @@ public class Dieta {
 	public boolean getVegan(){
 		return vegan;
 	}
+	
+	//  cada uma altera o seu, adm pode alterar de todos. 
+	public void setConsumoCarne(boolean consumoCarne) {
+		this.consumoCarne = consumoCarne;
+		pontos+= pontosDieta();
+	}
+	public void setProcedenciaAlimentos(int procedenciaAlimentos) {
+		this.procedenciaAlimentos = procedenciaAlimentos;
+		pontos+= pontosDieta();
+	}
+	public void setVegan(boolean vegan) {
+		this.vegan = vegan;
+		pontos+= pontosDieta();
+	}
+	public void setVegetarian(boolean vegetarian) {
+		this.vegetarian = vegetarian;
+		pontos+= pontosDieta();
+	}
+	
 	
 }

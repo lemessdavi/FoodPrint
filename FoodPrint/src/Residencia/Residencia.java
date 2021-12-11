@@ -6,19 +6,21 @@ public class Residencia {
 	private int pontos;
 	private Agua consumoAgua;	
 	
-	public Residencia(int numeroMoradores, int tamanhoResidencia) {
+	public Residencia(int numeroMoradores, int tamanhoResidencia, Agua consumoAgua) {
 		this.numeroMoradores = numeroMoradores;
 		this.tamanhoResidencia = tamanhoResidencia;
+		this.consumoAgua = consumoAgua;
 		
-		pontos += getPontosNumeroMoradores();
-		pontos += getPontosNumeroResidencia();
-		
-		
+		pontos += getPontosResidencia();
+	}
+	public int getPontosResidencia(){
+		pontos = 0;
+		return getPontosNumeroMoradores() + getPontosNumeroResidencia();
 	}
 	
 	private int getPontosNumeroMoradores() {
 		if (numeroMoradores >5) {
-			pontos+= 2;
+			return 2;
 		} 
 		if (numeroMoradores > 0) {
 		switch (numeroMoradores) {
@@ -59,5 +61,20 @@ public class Residencia {
 	}
 	public int getPontos() {
 		return pontos;
+		
+	}
+	
+	//somente o admin pode alterar
+	public void setConsumoAgua(Agua consumoAgua) {
+		this.consumoAgua = consumoAgua;
+		pontos += getPontosResidencia();
+	}
+	public void setNumeroMoradores(int numeroMoradores) {
+		this.numeroMoradores = numeroMoradores;
+		pontos += getPontosResidencia();
+	}
+	public void setTamanhoResidencia(int tamanhoResidencia) {
+		this.tamanhoResidencia = tamanhoResidencia;
+		pontos += getPontosResidencia();
 	}
 }

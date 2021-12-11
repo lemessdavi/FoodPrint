@@ -9,9 +9,13 @@ public class Agua {
 		this.lavaLouca = lavaLouca;
 		this.lavaRoupa = lavaRoupa;
 		
-		pontos += getLavaLoucaPontos();
-		pontos += getLavaRoupaPontos();
-		
+		pontos += getPontosConsumoAgua();
+
+	}
+	
+	private int getPontosConsumoAgua() {
+		pontos = 0;
+		return getLavaLoucaPontos() + getLavaRoupaPontos();
 	}
 	
 	private int getLavaLoucaPontos() {
@@ -52,5 +56,18 @@ public class Agua {
 	}
 	public int getPontos() {
 		return pontos;
+		
+	}
+	
+	//somente o admin pode alterar
+	
+	public void setLavaLouca(int lavaLouca) {
+		this.lavaLouca = lavaLouca;
+		pontos += getPontosConsumoAgua();
+	
+	}
+	public void setLavaRoupa(int lavaRoupa) {
+		this.lavaRoupa = lavaRoupa;
+		pontos += getPontosConsumoAgua();
 	}
 }
