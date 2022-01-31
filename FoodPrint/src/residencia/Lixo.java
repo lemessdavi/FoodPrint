@@ -1,4 +1,4 @@
-package Residencia;
+package residencia;
 
 public class Lixo {
 
@@ -27,5 +27,9 @@ public class Lixo {
 			return 50;
 		}
 		throw new IllegalArgumentException("Unexpected value: " + lixeiraPorSemana);
+	}
+	
+	public int getPontos() {
+		return pontos;
 	}
 }

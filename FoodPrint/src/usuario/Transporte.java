@@ -1,4 +1,4 @@
-package veiculo;
+package usuario;
 
 public class Transporte {
 	private int pontos;
@@ -24,6 +24,10 @@ public class Transporte {
 	
 	public void calculaPontosVoos() {
 		
+	}
+	
+	public int getPontos() {
+		return pontos;
 	}
 
 }

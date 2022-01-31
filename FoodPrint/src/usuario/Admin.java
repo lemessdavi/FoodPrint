@@ -1,10 +1,9 @@
-package Usuarios;
+package usuario;
 
 import java.util.*;
 
-import Residencia.Agua;
-import Residencia.Residencia;
-import Usuarios.Dieta.Dieta;
+import residencia.Agua;
+import residencia.Residencia;
 
 public class Admin extends Usuario {
 

@@ -1,10 +1,9 @@
-package Usuarios;
+package usuario;
 
 import java.util.*;
 
-import Residencia.Agua;
-import Residencia.Residencia;
-import Usuarios.Dieta.Dieta;
+import residencia.Agua;
+import residencia.Residencia;
 
 public abstract class Usuario {
 	protected String nome;
@@ -12,6 +11,7 @@ public abstract class Usuario {
 	private int pontosTotais;
 	protected Residencia residencia;
 	protected Dieta dieta;
+	protected Transporte transporte;
 	
 	public String getNome() {
 		return nome;
@@ -22,6 +22,9 @@ public abstract class Usuario {
 	}
 	
 	public int getPontosTotais() {
+		pontosTotais = 0;
+		pontosTotais = residencia.getPontos() + dieta.getPontos() + transporte.getPontos();
+		
 		return pontosTotais;
 	}
 	
@@ -32,6 +35,7 @@ public abstract class Usuario {
 	public Dieta getDieta() {
 		return dieta;
 	}
+	
 	
 	
 }

@@ -1,4 +1,4 @@
-package Usuarios.Dieta;
+package usuario;
 
 public class Dieta {
 	private int pontos;

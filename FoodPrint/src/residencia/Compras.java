@@ -1,4 +1,4 @@
-package Residencia;
+package residencia;
 
 public class Compras {
 	private int pontos;

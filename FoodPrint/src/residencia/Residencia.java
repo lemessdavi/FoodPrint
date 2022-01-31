@@ -1,21 +1,28 @@
-package Residencia;
+package residencia;
 
 public class Residencia {
 	private int numeroMoradores;
 	private int tamanhoResidencia; // 0 -> apartamento, 1-> small house, 2-> medium house, 3->large house
 	private int pontos;
 	private Agua consumoAgua;	
+	private Compras compras;
+	private Lixo lixo;
+	private Reciclado lixoReciclado;
 	
-	public Residencia(int numeroMoradores, int tamanhoResidencia, Agua consumoAgua) {
+	public Residencia(int numeroMoradores, int tamanhoResidencia, Agua consumoAgua, Compras compras, Lixo lixo, Reciclado lixoReciclado) {
 		this.numeroMoradores = numeroMoradores;
 		this.tamanhoResidencia = tamanhoResidencia;
 		this.consumoAgua = consumoAgua;
+		this.compras = compras;
+		this.lixo = lixo;
+		this.lixoReciclado = lixoReciclado;
 		
 		pontos += getPontosResidencia();
 	}
 	public int getPontosResidencia(){
 		pontos = 0;
-		return getPontosNumeroMoradores() + getPontosNumeroResidencia();
+		
+		return getPontosNumeroMoradores() + getPontosNumeroResidencia() + consumoAgua.getPontos() + compras.getPontos() + lixo.getPontos() + lixoReciclado.getPontos();
 	}
 	
 	private int getPontosNumeroMoradores() {

@@ -1,4 +1,4 @@
-package Residencia;
+package residencia;
 
 public class Agua {
 	private int pontos;
