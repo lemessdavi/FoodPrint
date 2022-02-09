@@ -4,20 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Reciclado {
-	private int pontos;
+	private int pontos = 24;
 	private boolean recicla;
-	private List<Boolean> tiposReciclagem;
+	private int quantidadeReciclada;
 	
-	public Reciclado(boolean recicla, boolean tiposRecicalgem[]) {
+	public Reciclado(boolean recicla, int quantidadeReciclada) {
+		this.recicla = recicla;
+		this.quantidadeReciclada = quantidadeReciclada;
+		
+		pontos -= quantidadeReciclada();
 		
 	}
 	
-	public void verificaRecicla(){
-		// estabelece se começa com os pontos e tira ou só bota o total
+	public int quantidadeReciclada(){
+		if (recicla) {
+			return quantidadeReciclada * 4;
+		}
+		return 0;
 	}
 	
 	public int getPontos() {
-		return 0; //retorna a quantidade de pontos que é para RETIRAR dos pontos
+		return pontos;
 		
 	}
 }
