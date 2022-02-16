@@ -6,18 +6,15 @@ import residencia.Agua;
 import residencia.Residencia;
 
 public class Morador extends Usuario {
-	private String nome;
-	private int idade;
-	private int pontosTotais;
-	private Residencia residencia;
-	private Dieta dieta;
 	
 	
-	public Morador(String nome, int idade, Residencia residencia, Dieta dieta) {
+	
+	public Morador(String nome, int idade, Transporte transporte, Dieta dieta, Residencia residencia) {
 		this.nome = nome;
 		this.dieta = dieta;
 		this.idade = idade;
 		this.residencia = residencia;
+		this.transporte = transporte;
 	}
 }
 

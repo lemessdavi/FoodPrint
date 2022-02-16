@@ -9,12 +9,13 @@ public class Admin extends Usuario {
 
 	private String senha;
 	
-	public Admin(String nome, int idade, Residencia residencia, Dieta dieta, String senha) {
+	public Admin(String nome, int idade, Transporte transporte, Dieta dieta, Residencia residencia, String senha) {
 		this.nome = nome;
 		this.dieta = dieta;
 		this.idade = idade;
 		this.residencia = residencia;
 		this.senha = senha;
+		this.transporte = transporte;
 	}
 	
 	public boolean autenticaSenha(String senha) {

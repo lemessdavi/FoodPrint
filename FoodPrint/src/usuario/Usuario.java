@@ -2,6 +2,7 @@ package usuario;
 
 import java.util.*;
 
+import repositorio.Repositorio;
 import residencia.Agua;
 import residencia.Residencia;
 
@@ -12,6 +13,7 @@ public abstract class Usuario {
 	protected Residencia residencia;
 	protected Dieta dieta;
 	protected Transporte transporte;
+	static Repositorio repo;
 	
 	public String getNome() {
 		return nome;
@@ -23,7 +25,7 @@ public abstract class Usuario {
 	
 	public int getPontosTotais() {
 		pontosTotais = 0;
-		pontosTotais = residencia.getPontos() + dieta.getPontos() + transporte.getPontos();
+		pontosTotais = this.residencia.getPontosResidencia() + this.dieta.getPontos() + this.transporte.getPontos();
 		
 		return pontosTotais;
 	}
@@ -34,6 +36,16 @@ public abstract class Usuario {
 	
 	public Dieta getDieta() {
 		return dieta;
+	}
+	
+	public double calculaNota() {
+		return (getPontosTotais() * 10) / 184;
+		
+	}
+	
+	@Override
+	public String toString() {
+		return nome + "      Indice de Emissao: " + getPontosTotais() + "      Mora na Residencia: " + residencia.getNomeMoradia();
 	}
 	
 	

@@ -26,4 +26,8 @@ public class Lixo {
 	public int getPontos() {
 		return pontos;
 	}
+	
+	public int getLixeiraPorSemana() {
+		return lixeiraPorSemana;
+	}
 }

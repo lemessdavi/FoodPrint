@@ -5,7 +5,7 @@ public class Dieta {
 	private String dieta; 
 	String[] opcoesDieta = { "Vegano", "Vegetariano", "Alguns Dias da Semana", "Praticamente todos os dias"};
 	// true = daily basis, then add 10 points. || false = few times per week, then add 8 points.
-	String[] opcoesProcedenciaAlimentos= { "Somente comida fresca, plantada localmente.", "Um balanco entre comida fresca e industrializada.", "Apenas comida industrializada."};
+	String[] opcoesProcedenciaAlimentos= { "Somente comida fresca, produzida localmente.", "Um balanco entre comida fresca e industrializada.", "Apenas comida industrializada."};
 	private String procedenciaAlimentos; 
 	
 	// 0 = 12 points if most of the food you eat is prepackaged || 1 = 6 points good balance of fresh and convenience food. || 2 = 2 points only eat fresh, locally grown
@@ -19,6 +19,8 @@ public class Dieta {
 		
 	}
 	
+
+
 	public int pontosDieta() {
 		pontos = 0;
 		return (pontosConsumoCarne() + pontosProcedenciaAlimentos());
@@ -46,7 +48,7 @@ public class Dieta {
 			return 12;
 		case "Um balanco entre comida fresca e industrializada.":
 			return 6;
-		case "Somente comida fresca, plantada localmente.":
+		case "Somente comida fresca, produzida localmente.":
 			return 2;
 		default:
 			throw new IllegalArgumentException("Unexpected value: " + procedenciaAlimentos);

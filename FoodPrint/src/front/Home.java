@@ -5,17 +5,38 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JTextField;
+
+import repositorio.Repositorio;
+import residencia.Residencia;
+import usuario.Usuario;
+
+import javax.swing.JTable;
+import javax.swing.JList;
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
+import java.awt.Font;
 
 public class Home extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField fieldUsuarioNome;
-	private JTextField fieldUsuarioIdade;
+	public static Repositorio repo = new Repositorio();
+	private JButton btnAddResidencia;
+	private JButton btnAddUsuario;
+	public  JList<Usuario> listUsuario;
+	public  JList<Residencia> listResidencia;
+	private JButton btnAtualizar;;
+	public static DefaultListModel modelResidencia;
+	public static DefaultListModel modelUsuario;
+	private JLabel lblResidenciasCadastradas;
+	private JLabel lblUsuariosCadastradas;
+	private JLabel lableMyFoodPrint;
+	private JButton btnEditarUsuario;
+	private JButton btnEditarResidencia;
 
 	/**
 	 * Launch the application.
@@ -31,16 +52,13 @@ public class Home extends JFrame {
 				}
 			}
 		});
-		
-		
 	}
-	
-	
 
 	/**
 	 * Create the frame.
 	 */
 	public Home() {
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(1280, 720);
 		contentPane = new JPanel();
@@ -48,36 +66,106 @@ public class Home extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+	
 		
-		fieldUsuarioNome = new JTextField();
-		fieldUsuarioNome.setColumns(10);
-		fieldUsuarioNome.setBounds(30, 63, 185, 43);
-		contentPane.add(fieldUsuarioNome);
+		btnAddResidencia = new JButton("Adicionar Residencia");
+		btnAddResidencia.setBounds(60, 615, 175, 29);
+		contentPane.add(btnAddResidencia);
 		
-		JLabel labelUsuarioNome = new JLabel("Nome");
-		labelUsuarioNome.setBounds(30, 47, 61, 16);
-		contentPane.add(labelUsuarioNome);
+		btnAddResidencia.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				AddResidencia frame = new AddResidencia();
+				frame.setVisible(true);
+				
+			}
+		});
 		
-		fieldUsuarioIdade = new JTextField();
-		fieldUsuarioIdade.setColumns(10);
-		fieldUsuarioIdade.setBounds(260, 63, 89, 43);
-		contentPane.add(fieldUsuarioIdade);
 		
-		JLabel labelUsuarioIdade = new JLabel("Idade");
-		labelUsuarioIdade.setBounds(260, 47, 61, 16);
-		contentPane.add(labelUsuarioIdade);
 		
-		JCheckBox checkboxAdmin = new JCheckBox("Administrador?");
-		checkboxAdmin.setBounds(30, 118, 128, 23);
-		contentPane.add(checkboxAdmin);
+		btnAddUsuario = new JButton("Adicionar Usuario");
+		btnAddUsuario.setBounds(501, 615, 175, 29);
+		contentPane.add(btnAddUsuario);
 		
-		JLabel labelOpcoesDieta = new JLabel("Quais das opções abaixo melho carateriza sua dieta?");
-		labelOpcoesDieta.setBounds(30, 193, 354, 16);
-		contentPane.add(labelOpcoesDieta);
+		btnAddUsuario.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				AddMorador frame = new AddMorador();
+				frame.setVisible(true);
+			}
+		});
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(30, 259, 201, 27);
-		contentPane.add(comboBox);
+		modelResidencia = new DefaultListModel();
+		modelResidencia.addAll(repo.listaResidenicas);
+		
+		
+		listResidencia = new JList(modelResidencia);
+		listResidencia.setBounds(60, 200, 371, 403);
+		contentPane.add(listResidencia);
+		
+		
+		modelUsuario = new DefaultListModel();
+		modelUsuario.addAll(repo.listaUsuarios);
+		
+		listUsuario = new JList(modelUsuario);
+		listUsuario.setBounds(501, 200, 371, 403);
+		contentPane.add(listUsuario);
+		
+		lblResidenciasCadastradas = new JLabel("Residencias Cadastradas:");
+		lblResidenciasCadastradas.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+		lblResidenciasCadastradas.setBounds(113, 172, 278, 16);
+		contentPane.add(lblResidenciasCadastradas);
+		
+		lblUsuariosCadastradas = new JLabel("Usuarios Cadastrados:");
+		lblUsuariosCadastradas.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+		lblUsuariosCadastradas.setBounds(577, 172, 220, 16);
+		contentPane.add(lblUsuariosCadastradas);
+		
+		lableMyFoodPrint = new JLabel("MyFootPrint");
+		lableMyFoodPrint.setFont(new Font("Lucida Grande", Font.BOLD, 50));
+		lableMyFoodPrint.setBounds(455, 32, 326, 75);
+		contentPane.add(lableMyFoodPrint);
+		
+		btnEditarUsuario = new JButton("Editar Usuario");
+		btnEditarUsuario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnEditarUsuario.setBounds(697, 615, 175, 29);
+		contentPane.add(btnEditarUsuario);
+		
+		
+		
+		btnEditarResidencia = new JButton("Editar Residencia");
+		btnEditarResidencia.setBounds(256, 615, 175, 29);
+		contentPane.add(btnEditarResidencia);
+		
+		btnEditarResidencia.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Residencia selecionada = listResidencia.getSelectedValue();
+				PerguntaSenha telaSenha = new PerguntaSenha();
+				telaSenha.setVisible(true);
+				
+				telaSenha.btnEntrar.addActionListener(new ActionListener() {
+
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						if(selecionada.getAdmin().autenticaSenha(telaSenha.getSenha())) {
+							  int index = listResidencia.getSelectedIndex();
+					          Residencia selecionada = (Residencia) listResidencia.getSelectedValue();
+					          EditResidencia frameEditResidencia = new EditResidencia(selecionada);
+					          frameEditResidencia.setVisible(true);
+						} else {
+							System.out.println("senha incorreta");
+						}
+					}
+
+				});
+
+	           
+	        }
+		});
+		
+		// if(listResidencia.getSelectedValue().getAdmin().autenticaSenha(senha.getSelectedText()));
 		
 		
 	}
