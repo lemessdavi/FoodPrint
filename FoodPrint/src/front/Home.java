@@ -20,6 +20,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import java.awt.Font;
+import javax.swing.JTextPane;
+import javax.swing.DropMode;
+import java.awt.TextArea;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.SystemColor;
+import javax.swing.UIManager;
 
 public class Home extends JFrame {
 
@@ -69,7 +76,7 @@ public class Home extends JFrame {
 	
 		
 		btnAddResidencia = new JButton("Adicionar Residencia");
-		btnAddResidencia.setBounds(60, 615, 175, 29);
+		btnAddResidencia.setBounds(43, 615, 175, 29);
 		contentPane.add(btnAddResidencia);
 		
 		btnAddResidencia.addActionListener(new ActionListener() {
@@ -83,7 +90,7 @@ public class Home extends JFrame {
 		
 		
 		btnAddUsuario = new JButton("Adicionar Usuario");
-		btnAddUsuario.setBounds(501, 615, 175, 29);
+		btnAddUsuario.setBounds(442, 615, 175, 29);
 		contentPane.add(btnAddUsuario);
 		
 		btnAddUsuario.addActionListener(new ActionListener() {
@@ -99,7 +106,7 @@ public class Home extends JFrame {
 		
 		
 		listResidencia = new JList(modelResidencia);
-		listResidencia.setBounds(60, 200, 371, 403);
+		listResidencia.setBounds(60, 200, 326, 403);
 		contentPane.add(listResidencia);
 		
 		
@@ -107,17 +114,17 @@ public class Home extends JFrame {
 		modelUsuario.addAll(repo.listaUsuarios);
 		
 		listUsuario = new JList(modelUsuario);
-		listUsuario.setBounds(501, 200, 371, 403);
+		listUsuario.setBounds(444, 200, 371, 403);
 		contentPane.add(listUsuario);
 		
 		lblResidenciasCadastradas = new JLabel("Residencias Cadastradas:");
 		lblResidenciasCadastradas.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
-		lblResidenciasCadastradas.setBounds(113, 172, 278, 16);
+		lblResidenciasCadastradas.setBounds(60, 172, 326, 16);
 		contentPane.add(lblResidenciasCadastradas);
 		
 		lblUsuariosCadastradas = new JLabel("Usuarios Cadastrados:");
 		lblUsuariosCadastradas.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
-		lblUsuariosCadastradas.setBounds(577, 172, 220, 16);
+		lblUsuariosCadastradas.setBounds(475, 172, 371, 16);
 		contentPane.add(lblUsuariosCadastradas);
 		
 		lableMyFoodPrint = new JLabel("MyFootPrint");
@@ -130,7 +137,7 @@ public class Home extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnEditarUsuario.setBounds(697, 615, 175, 29);
+		btnEditarUsuario.setBounds(640, 615, 175, 29);
 		contentPane.add(btnEditarUsuario);
 		
 		btnEditarUsuario.addActionListener(new ActionListener() {
@@ -143,8 +150,23 @@ public class Home extends JFrame {
 		
 		
 		btnEditarResidencia = new JButton("Editar Residencia");
-		btnEditarResidencia.setBounds(256, 615, 175, 29);
+		btnEditarResidencia.setBounds(230, 615, 175, 29);
 		contentPane.add(btnEditarResidencia);
+		
+		JLabel lblOQueQuer = new JLabel("O que quer dizer meu índice?");
+		lblOQueQuer.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
+		lblOQueQuer.setBounds(913, 161, 371, 39);
+		contentPane.add(lblOQueQuer);
+		
+		JTextPane txtpnOqueQuerDizer_1 = new JTextPane();
+		txtpnOqueQuerDizer_1.setBackground(new Color(238, 238, 238));
+		txtpnOqueQuerDizer_1.setToolTipText("");
+		txtpnOqueQuerDizer_1.setText("Resumindo, quanto menos, melhor! \n\n\n-> Abaixo de 60 pontos de índice, você está mais ajudando o meio-ambiente do que poluindo!\n\n\n\n-> A quantidade máxma estimada* de pontos é de 150. \n\n\n\n* Porém, é praticamente impossível apenas um ser humano conseguir poluir tanto tendo em vista que essa quantidade de pontos é de porporções de empresas e indústrias.");
+		txtpnOqueQuerDizer_1.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		txtpnOqueQuerDizer_1.setEditable(false);
+		txtpnOqueQuerDizer_1.setBounds(895, 200, 326, 393);
+		contentPane.add(txtpnOqueQuerDizer_1);
+		txtpnOqueQuerDizer_1.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		
 		btnEditarResidencia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

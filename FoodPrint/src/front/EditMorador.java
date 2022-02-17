@@ -179,7 +179,7 @@ public class EditMorador extends JFrame {
 		   
 		    	usuario.editUsuario(nome, idade, transporte, dieta);
 		    	
-		    	 
+		    	dispose();
 		    	
 		    	 
 		    	 

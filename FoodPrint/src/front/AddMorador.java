@@ -28,6 +28,7 @@ import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowEvent;
 
 public class AddMorador extends JFrame {
 
@@ -245,7 +246,6 @@ public class AddMorador extends JFrame {
 		    		usuario = new Admin(nome, idade, transporte, dieta ,residencia, senha);
 		    		residencia.setAdmin((Admin) usuario);
 		    	} else {
-		    		 System.out.println("ENTTROU VACA");
 		    		usuario = new Morador(nome, idade, transporte, dieta, residencia);
 		    	}
 		    	
@@ -258,8 +258,8 @@ public class AddMorador extends JFrame {
 		    	 
 		    	 System.out.println(usuario.getPontosTotais());
 		    	 
+		    	dispose();
 		    	
-		    	 
 		    	 
 		    	
 		    }

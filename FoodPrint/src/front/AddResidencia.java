@@ -249,6 +249,7 @@ public class AddResidencia extends JFrame {
 		        System.out.println(residencia.toString());
 		        System.out.println(Home.repo.listaResidenicas.toString());
 		        
+		        dispose();
 		    }
 		});
 		

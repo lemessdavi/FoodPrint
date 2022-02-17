@@ -242,7 +242,7 @@ public class EditResidencia extends JFrame {
 		        	
 		        }
 		        
-		        
+		        dispose();
 		        
 		    }
 		});
