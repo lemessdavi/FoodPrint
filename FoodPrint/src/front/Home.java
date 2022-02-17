@@ -27,6 +27,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.SystemColor;
 import javax.swing.UIManager;
+import javax.swing.SwingConstants;
 
 public class Home extends JFrame {
 
@@ -44,6 +45,7 @@ public class Home extends JFrame {
 	private JLabel lableMyFoodPrint;
 	private JButton btnEditarUsuario;
 	private JButton btnEditarResidencia;
+	private JButton btnRemoverUsuario;
 
 	/**
 	 * Launch the application.
@@ -124,7 +126,7 @@ public class Home extends JFrame {
 		
 		lblUsuariosCadastradas = new JLabel("Usuarios Cadastrados:");
 		lblUsuariosCadastradas.setFont(new Font("Lucida Grande", Font.PLAIN, 20));
-		lblUsuariosCadastradas.setBounds(475, 172, 371, 16);
+		lblUsuariosCadastradas.setBounds(442, 172, 222, 16);
 		contentPane.add(lblUsuariosCadastradas);
 		
 		lableMyFoodPrint = new JLabel("MyFootPrint");
@@ -167,6 +169,18 @@ public class Home extends JFrame {
 		txtpnOqueQuerDizer_1.setBounds(895, 200, 326, 393);
 		contentPane.add(txtpnOqueQuerDizer_1);
 		txtpnOqueQuerDizer_1.setAlignmentX(Component.RIGHT_ALIGNMENT);
+		
+		btnRemoverUsuario = new JButton("Remover Usuario");
+		btnRemoverUsuario.setBounds(534, 656, 175, 29);
+		contentPane.add(btnRemoverUsuario);
+		
+		btnRemoverUsuario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+		          int selecionadoIndex = listUsuario.getSelectedIndex();
+		          Usuario selecionado = (Usuario) listUsuario.getSelectedValue();
+		          modelUsuario.removeElement(selecionado);
+		          ;}
+		});
 		
 		btnEditarResidencia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

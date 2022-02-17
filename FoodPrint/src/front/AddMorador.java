@@ -225,8 +225,15 @@ public class AddMorador extends JFrame {
 		    public void actionPerformed(ActionEvent e) {
 		        
 		    	String nome = fieldUsuarioNome.getText();
-		    	int idade = Integer.parseInt(fieldUsuarioIdade.getText());	
+		    	int idade = 0;
+		    	boolean idadeNull;
 		    	
+		    	try {
+		    	idade = Integer.parseInt(fieldUsuarioIdade.getText());	
+		    	idadeNull = false;
+		    	} catch(NumberFormatException ex){
+		    		idadeNull = true;
+		    	}
 		    	String dietaSelecionada = String.valueOf(comboBoxOpcoesDieta.getSelectedItem());
 		    	String procedencia = String.valueOf(comboBoxOpcoesProcedenciaAlimentos.getSelectedItem());
 		    	
@@ -244,12 +251,22 @@ public class AddMorador extends JFrame {
 		    	System.out.println(residencia);
 		    	
 		    	Usuario usuario;
+		    	if(!idadeNull) {	
 		    	if(checkboxAdmin.isSelected()) {
 		    		char[] senha = passwordField.getPassword();
 		    		usuario = new Admin(nome, idade, transporte, dieta ,residencia, senha);
 		    		residencia.setAdmin((Admin) usuario);
 		    	} else {
 		    		usuario = new Morador(nome, idade, transporte, dieta, residencia);
+		    	}
+		    	}else {
+		    		if(checkboxAdmin.isSelected()) {
+			    		char[] senha = passwordField.getPassword();
+			    		usuario = new Admin(nome, transporte, dieta ,residencia, senha);
+			    		residencia.setAdmin((Admin) usuario);
+			    	} else {
+			    		usuario = new Morador(nome, transporte, dieta, residencia);
+			    	}
 		    	}
 		    	
 		    	 Home.repo.listaUsuarios.add(usuario);

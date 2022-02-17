@@ -138,7 +138,7 @@ public class EditMorador extends JFrame {
 		textFieldTransportePublico.setColumns(10);
 		textFieldTransportePublico.setBounds(644, 234, 89, 43);
 		contentPane.add(textFieldTransportePublico);
-		textFieldTransportePublico.setText(String.valueOf(usuario.getTransporte().getTransportePublico()));
+		textFieldTransportePublico.setText(String.valueOf(usuario.getTransporte().getTransportePublico()/ 0.621371));
 		
 		JLabel lblEmMdiaQuantos_2 = new JLabel("Em média, quantos kilometros por ano você anda por transporte público?");
 		lblEmMdiaQuantos_2.setBounds(644, 206, 492, 20);
@@ -166,7 +166,16 @@ public class EditMorador extends JFrame {
 		    public void actionPerformed(ActionEvent e) {
 		        
 		    	String nome = fieldUsuarioNome.getText();
-		    	int idade = Integer.parseInt(fieldUsuarioIdade.getText());	
+		    	
+		    	int idade = 0;
+		    	boolean idadeNull;
+		    	
+		    	try {
+		    	idade = Integer.parseInt(fieldUsuarioIdade.getText());	
+		    	idadeNull = false;
+		    	} catch(NumberFormatException ex){
+		    		idadeNull = true;
+		    	}
 		    	
 		    	String dietaSelecionada = String.valueOf(comboBoxOpcoesDieta.getSelectedItem());
 		    	String procedencia = String.valueOf(comboBoxOpcoesProcedenciaAlimentos.getSelectedItem());
@@ -179,9 +188,11 @@ public class EditMorador extends JFrame {
 		    	
 		    	Transporte transporte = new Transporte(transporteParicular, transportePublico, voos);
 		    	
-		   
-		    	usuario.editUsuario(nome, idade, transporte, dieta);
-		    	
+		    	if(!idadeNull) {
+		    		usuario.editUsuario(nome, idade, transporte, dieta);
+		    	} else {
+		    		usuario.editUsuario(nome, transporte, dieta);
+		    	}
 		    	dispose();
 		    	
 		    	 

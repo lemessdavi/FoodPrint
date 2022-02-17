@@ -47,13 +47,18 @@ public abstract class Usuario {
 	
 	@Override
 	public String toString() {
-		return nome + "      Indice de Emissao: " + getPontosTotais() + "      Mora na Residencia: " + residencia.getNomeMoradia();
+		return nome + "      Indice de Emissao: " + getPontosTotais() + "      Residencia: " + residencia.getNomeMoradia();
 	}
 	
 	public void editUsuario(String nome, int idade, Transporte transporte, Dieta dieta) {
 		this.nome = nome;
 		this.dieta = dieta;
 		this.idade = idade;
+		this.transporte = transporte;
+	}
+	public void editUsuario(String nome, Transporte transporte, Dieta dieta) {
+		this.nome = nome;
+		this.dieta = dieta;
 		this.transporte = transporte;
 	}
 	
