@@ -1,11 +1,11 @@
 package residencia;
 
-public class Compras {
+public class Compra {
 	private int pontos;
 	private int comprasPorAno; 
 	
 	
-	public Compras(int comprasPorAno) {
+	public Compra(int comprasPorAno) {
 		this.comprasPorAno = comprasPorAno;
 		
 		pontos+= getPontosComprasPorAno();

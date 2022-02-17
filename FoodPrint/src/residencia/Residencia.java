@@ -8,12 +8,12 @@ public class Residencia {
 	private String tamanhoResidencia; // 0 -> apartamento, 1-> small house, 2-> medium house, 3->large house
 	private int pontos;
 	private Agua consumoAgua;	
-	private Compras compras;
+	private Compra compras;
 	private Lixo lixo;
 	private Reciclado lixoReciclado;
 	private Admin admin;
 	
-	public Residencia(String nome,int numeroMoradores, String tamanhoResidencia, Agua consumoAgua, Compras compras, Lixo lixo, Reciclado lixoReciclado) {
+	public Residencia(String nome,int numeroMoradores, String tamanhoResidencia, Agua consumoAgua, Compra compras, Lixo lixo, Reciclado lixoReciclado) {
 		this.nomeMoradia = nome;
 		this.numeroMoradores = numeroMoradores;
 		this.tamanhoResidencia = tamanhoResidencia;
@@ -80,7 +80,7 @@ public class Residencia {
 	public Agua getConsumoAgua() {
 		return consumoAgua;
 	}
-	public Compras getCompras() {
+	public Compra getCompras() {
 		return compras;
 	}
 	public Lixo getLixo() {
@@ -118,7 +118,7 @@ public class Residencia {
 	}
 	
 	public void alterarResidencia(String nomeMoradia2, int numeroMoradores2, String tamanhoResidencia2,
-			Agua consumoAgua2, Compras comprasAno, Lixo lixo2, Reciclado reciclados) {
+			Agua consumoAgua2, Compra comprasAno, Lixo lixo2, Reciclado reciclados) {
 		this.nomeMoradia = nomeMoradia2;
 		this.numeroMoradores = numeroMoradores2;
 		this.tamanhoResidencia = tamanhoResidencia2;

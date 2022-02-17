@@ -15,7 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import residencia.Agua;
-import residencia.Compras;
+import residencia.Compra;
 import residencia.Lixo;
 import residencia.Reciclado;
 import residencia.Residencia;
@@ -49,38 +49,39 @@ public class EditResidencia extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel idLabelNome = new JLabel("Nome da Moradia");
-		idLabelNome.setBounds(30, 17, 117, 16);
+		idLabelNome.setBounds(30, 42, 117, 16);
 		contentPane.add(idLabelNome);
 		
 		textFieldNomeMoradia = new JTextField();
-		textFieldNomeMoradia.setBounds(30, 36, 222, 41);
+		textFieldNomeMoradia.setBounds(30, 61, 222, 41);
 		contentPane.add(textFieldNomeMoradia);
 		textFieldNomeMoradia.setColumns(10);
 		textFieldNomeMoradia.setText(residencia.getNomeMoradia());
 		
 		textFieldNumeroDeMoradores = new JTextField();
 		textFieldNumeroDeMoradores.setColumns(10);
-		textFieldNumeroDeMoradores.setBounds(290, 36, 147, 41);
+		textFieldNumeroDeMoradores.setBounds(290, 61, 147, 41);
 		contentPane.add(textFieldNumeroDeMoradores);
 		textFieldNumeroDeMoradores.setText(String.valueOf(residencia.getNumeroMoradores()));
 		
 		JLabel idLabelNumeroMoradores = new JLabel("Numero de Moradores");
-		idLabelNumeroMoradores.setBounds(290, 17, 147, 16);
+		idLabelNumeroMoradores.setBounds(290, 42, 147, 16);
 		contentPane.add(idLabelNumeroMoradores);
 		
 		JLabel idLabelTipoDeMoradia = new JLabel("Tipo de Moradia");
-		idLabelTipoDeMoradia.setBounds(523, 17, 101, 16);
+		idLabelTipoDeMoradia.setBounds(523, 42, 101, 16);
 		contentPane.add(idLabelTipoDeMoradia);
 		
 		String[] opcoesMoradia = {"Apartamento", "Casa Pequena", "Casa Media", "Casa Grande"};
 		
 		JComboBox comboBox = new JComboBox(opcoesMoradia);
-		comboBox.setBounds(523, 44, 162, 27);
+		comboBox.setBounds(523, 69, 162, 27);
 		contentPane.add(comboBox);
 		comboBox.setSelectedItem(residencia.getTamanhoResidencia());
 		
 		JLabel idLabelConsumoDeAgua = new JLabel("Consumo de Agua");
-		idLabelConsumoDeAgua.setBounds(30, 202, 117, 16);
+		idLabelConsumoDeAgua.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		idLabelConsumoDeAgua.setBounds(30, 202, 222, 16);
 		contentPane.add(idLabelConsumoDeAgua);
 		
 		textFieldLavaLouca = new JTextField();
@@ -122,10 +123,12 @@ public class EditResidencia extends JFrame {
 		contentPane.add(lbLabelComprasPorAno);
 		
 		JLabel idLabelCompras = new JLabel("Compras de Casa");
-		idLabelCompras.setBounds(30, 505, 117, 16);
+		idLabelCompras.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		idLabelCompras.setBounds(30, 505, 188, 16);
 		contentPane.add(idLabelCompras);
 		
 		JLabel lblDesperdcio = new JLabel("Desperdício");
+		lblDesperdcio.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
 		lblDesperdcio.setBounds(635, 202, 117, 16);
 		contentPane.add(lblDesperdcio);
 		
@@ -216,7 +219,7 @@ public class EditResidencia extends JFrame {
 		        // Compras
 		        int comprasPorAno = Integer.parseInt(textFieldComprasPorAno.getText());
 		        
-		        Compras comprasAno = new Compras(comprasPorAno); 
+		        Compra comprasAno = new Compra(comprasPorAno); 
 		        
 		        //Lixo
 		        int lixoPorSemana = Integer.parseInt(textFieldLixoPorSemana.getText());
@@ -237,12 +240,13 @@ public class EditResidencia extends JFrame {
 		        
 		        if(residencia.getAdmin().autenticaSenha(passwordField.getPassword())) {
 		        	residencia.alterarResidencia(nomeMoradia, numeroMoradores, tamanhoResidencia, consumoAgua, comprasAno, lixo, reciclados);
+		        	 dispose();
 		        } else {
 		        		labelSenhaIncorreta.setVisible(true);
 		        	
 		        }
 		        
-		        dispose();
+		       
 		        
 		    }
 		});

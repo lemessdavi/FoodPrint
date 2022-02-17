@@ -29,6 +29,7 @@ import javax.swing.JPasswordField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowEvent;
+import java.awt.Font;
 
 public class AddMorador extends JFrame {
 
@@ -127,8 +128,8 @@ public class AddMorador extends JFrame {
 		
 		//Dieta e Procedencia
 		
-		JLabel labelOpcoesDieta = new JLabel("Quais das opções abaixo melhor caracteriza sua dieta?");
-		labelOpcoesDieta.setBounds(30, 342, 354, 20);
+		JLabel labelOpcoesDieta = new JLabel("Quais das opções abaixo melhor caracteriza sua dieta em relação ao consumo de carne?");
+		labelOpcoesDieta.setBounds(30, 342, 558, 20);
 		contentPane.add(labelOpcoesDieta);
 	
 		String[] opcoesDieta = { "Vegano", "Vegetariano", "Alguns Dias da Semana", "Praticamente todos os dias"};
@@ -170,10 +171,12 @@ public class AddMorador extends JFrame {
 			});
 		
 		JLabel labelDieta = new JLabel("Fale um pouco sobre sua Dieta:");
+		labelDieta.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
 		labelDieta.setBounds(30, 305, 354, 20);
 		contentPane.add(labelDieta);
 		
 		JLabel lblFaleUmPoucoTransporte = new JLabel("Fale um pouco sobre seu Transporte");
+		lblFaleUmPoucoTransporte.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
 		lblFaleUmPoucoTransporte.setBounds(666, 204, 354, 20);
 		contentPane.add(lblFaleUmPoucoTransporte);
 		

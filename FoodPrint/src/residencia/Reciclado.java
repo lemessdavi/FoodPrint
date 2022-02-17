@@ -10,11 +10,11 @@ public class Reciclado {
 	public Reciclado(int quantidadeReciclada) {
 		this.quantidadeReciclada = quantidadeReciclada;
 		
-		pontos -= quantidadeReciclada();
+		pontos -= getQuantidadeReciclada();
 		
 	}
 	
-	public int quantidadeReciclada(){
+	public int getQuantidadeReciclada(){
 		return quantidadeReciclada * 4;
 	}
 	

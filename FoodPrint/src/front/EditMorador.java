@@ -24,6 +24,7 @@ import usuario.Dieta;
 import usuario.Morador;
 import usuario.Transporte;
 import usuario.Usuario;
+import java.awt.Font;
 
 public class EditMorador extends JFrame {
 
@@ -86,8 +87,8 @@ public class EditMorador extends JFrame {
 		
 		//Dieta e Procedencia
 		
-		JLabel labelOpcoesDieta = new JLabel("Quais das opções abaixo melhor caracteriza sua dieta?");
-		labelOpcoesDieta.setBounds(30, 177, 354, 20);
+		JLabel labelOpcoesDieta = new JLabel("Quais das opções abaixo melhor caracteriza sua dieta em relação ao consumo de carne?");
+		labelOpcoesDieta.setBounds(30, 177, 611, 20);
 		contentPane.add(labelOpcoesDieta);
 	
 		String[] opcoesDieta = { "Vegano", "Vegetariano", "Alguns Dias da Semana", "Praticamente todos os dias"};
@@ -110,50 +111,52 @@ public class EditMorador extends JFrame {
 		
 		
 		JLabel labelDieta = new JLabel("Fale um pouco sobre sua Dieta:");
+		labelDieta.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
 		labelDieta.setBounds(30, 140, 354, 20);
 		contentPane.add(labelDieta);
 		
 		JLabel lblFaleUmPoucoTransporte = new JLabel("Fale um pouco sobre seu Transporte");
-		lblFaleUmPoucoTransporte.setBounds(611, 63, 354, 20);
+		lblFaleUmPoucoTransporte.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		lblFaleUmPoucoTransporte.setBounds(644, 65, 354, 20);
 		contentPane.add(lblFaleUmPoucoTransporte);
 		
 		JLabel lblEmMdiaQuantos = new JLabel("Em média, quantos kilometros por ano você anda com seu carro particular?");
-		lblEmMdiaQuantos.setBounds(611, 102, 492, 20);
+		lblEmMdiaQuantos.setBounds(644, 104, 492, 20);
 		contentPane.add(lblEmMdiaQuantos);
 		
 		textFieldTransporteParticular = new JTextField();
 		textFieldTransporteParticular.setColumns(10);
-		textFieldTransporteParticular.setBounds(611, 138, 89, 43);
+		textFieldTransporteParticular.setBounds(644, 140, 89, 43);
 		contentPane.add(textFieldTransporteParticular);
 		textFieldTransporteParticular.setText(String.valueOf(usuario.getTransporte().getVeiculoPessoal()/ 0.621371));
 		
 		JLabel lblCasoNoTenha = new JLabel("Caso não tenha carro, bote 0.");
-		lblCasoNoTenha.setBounds(712, 146, 354, 20);
+		lblCasoNoTenha.setBounds(745, 148, 354, 20);
 		contentPane.add(lblCasoNoTenha);
 		
 		textFieldTransportePublico = new JTextField();
 		textFieldTransportePublico.setColumns(10);
-		textFieldTransportePublico.setBounds(611, 232, 89, 43);
+		textFieldTransportePublico.setBounds(644, 234, 89, 43);
 		contentPane.add(textFieldTransportePublico);
 		textFieldTransportePublico.setText(String.valueOf(usuario.getTransporte().getTransportePublico()));
 		
 		JLabel lblEmMdiaQuantos_2 = new JLabel("Em média, quantos kilometros por ano você anda por transporte público?");
-		lblEmMdiaQuantos_2.setBounds(611, 204, 492, 20);
+		lblEmMdiaQuantos_2.setBounds(644, 206, 492, 20);
 		contentPane.add(lblEmMdiaQuantos_2);
 		
 		JLabel lblVoos = new JLabel("Qual das opções melhor caracteriza os seus voôs?");
-		lblVoos.setBounds(611, 301, 337, 20);
+		lblVoos.setBounds(644, 303, 337, 20);
 		contentPane.add(lblVoos);
 
 		
 		String[] opcoesVoos = { "Nenhum Voo por Ano", "Apenas voos curtos, dentro do próprio estado", "Voos mais longos, dentro do meu país", "Distancias intercontinentais, para outros países"};
 		
 		JComboBox comboBoxVoos = new JComboBox(opcoesVoos);
-		comboBoxVoos.setBounds(611, 333, 201, 27);
+		comboBoxVoos.setBounds(644, 335, 201, 27);
 		contentPane.add(comboBoxVoos);
 		comboBoxVoos.setSelectedItem(usuario.getTransporte().getVoos());
 		
-		JButton btnEditUsuario = new JButton("Editar Usuário");
+		JButton btnEditUsuario = new JButton("Salvar Usuário");
 		btnEditUsuario.setBounds(913, 617, 223, 29);
 		contentPane.add(btnEditUsuario);
 		

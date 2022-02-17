@@ -3,7 +3,7 @@ package front;
 import java.awt.BorderLayout;
 import repositorio.*;
 import residencia.Agua;
-import residencia.Compras;
+import residencia.Compra;
 import residencia.Lixo;
 import residencia.Reciclado;
 import residencia.Residencia;
@@ -27,6 +27,7 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
+import java.awt.Font;
 
 public class AddResidencia extends JFrame {
 
@@ -67,35 +68,36 @@ public class AddResidencia extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel idLabelNome = new JLabel("Nome da Moradia");
-		idLabelNome.setBounds(30, 17, 117, 16);
+		idLabelNome.setBounds(30, 42, 117, 16);
 		contentPane.add(idLabelNome);
 		
 		textFieldNomeMoradia = new JTextField();
-		textFieldNomeMoradia.setBounds(30, 36, 222, 41);
+		textFieldNomeMoradia.setBounds(30, 61, 222, 41);
 		contentPane.add(textFieldNomeMoradia);
 		textFieldNomeMoradia.setColumns(10);
 		
 		textFieldNumeroDeMoradores = new JTextField();
 		textFieldNumeroDeMoradores.setColumns(10);
-		textFieldNumeroDeMoradores.setBounds(290, 36, 147, 41);
+		textFieldNumeroDeMoradores.setBounds(290, 61, 147, 41);
 		contentPane.add(textFieldNumeroDeMoradores);
 		
 		JLabel idLabelNumeroMoradores = new JLabel("Numero de Moradores");
-		idLabelNumeroMoradores.setBounds(290, 17, 147, 16);
+		idLabelNumeroMoradores.setBounds(290, 42, 147, 16);
 		contentPane.add(idLabelNumeroMoradores);
 		
 		JLabel idLabelTipoDeMoradia = new JLabel("Tipo de Moradia");
-		idLabelTipoDeMoradia.setBounds(523, 17, 101, 16);
+		idLabelTipoDeMoradia.setBounds(523, 42, 101, 16);
 		contentPane.add(idLabelTipoDeMoradia);
 		
 		String[] opcoesMoradia = {"Apartamento", "Casa Pequena", "Casa Media", "Casa Grande"};
 		
 		JComboBox comboBox = new JComboBox(opcoesMoradia);
-		comboBox.setBounds(523, 44, 162, 27);
+		comboBox.setBounds(523, 69, 162, 27);
 		contentPane.add(comboBox);
 		
 		JLabel idLabelConsumoDeAgua = new JLabel("Consumo de Agua");
-		idLabelConsumoDeAgua.setBounds(30, 202, 117, 16);
+		idLabelConsumoDeAgua.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		idLabelConsumoDeAgua.setBounds(30, 201, 222, 16);
 		contentPane.add(idLabelConsumoDeAgua);
 		
 		textFieldLavaLouca = new JTextField();
@@ -107,7 +109,7 @@ public class AddResidencia extends JFrame {
 		lbLabelLavaLouca.setBounds(30, 251, 432, 16);
 		contentPane.add(lbLabelLavaLouca);
 		
-		JLabel lblporFavorBote = new JLabel("(por favor, bote 0 se não tiver máquina)");
+		JLabel lblporFavorBote = new JLabel("se não possuir máquina, bote 0");
 		lblporFavorBote.setBounds(108, 282, 254, 16);
 		contentPane.add(lblporFavorBote);
 		
@@ -120,7 +122,7 @@ public class AddResidencia extends JFrame {
 		textFieldLavaRoupas.setBounds(30, 370, 66, 41);
 		contentPane.add(textFieldLavaRoupas);
 		
-		JLabel lblporFavorBote_1 = new JLabel("(por favor, bote 0 se não tiver máquina)");
+		JLabel lblporFavorBote_1 = new JLabel("se não possuir máquina, bote 0");
 		lblporFavorBote_1.setBounds(108, 382, 254, 16);
 		contentPane.add(lblporFavorBote_1);
 		
@@ -134,10 +136,12 @@ public class AddResidencia extends JFrame {
 		contentPane.add(lbLabelComprasPorAno);
 		
 		JLabel idLabelCompras = new JLabel("Compras de Casa");
-		idLabelCompras.setBounds(30, 505, 117, 16);
+		idLabelCompras.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		idLabelCompras.setBounds(30, 505, 254, 16);
 		contentPane.add(idLabelCompras);
 		
 		JLabel lblDesperdcio = new JLabel("Desperdício");
+		lblDesperdcio.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
 		lblDesperdcio.setBounds(635, 202, 117, 16);
 		contentPane.add(lblDesperdcio);
 		
@@ -214,7 +218,7 @@ public class AddResidencia extends JFrame {
 		        // Compras
 		        int comprasPorAno = Integer.parseInt(textFieldComprasPorAno.getText());
 		        
-		        Compras comprasAno = new Compras(comprasPorAno); 
+		        Compra comprasAno = new Compra(comprasPorAno); 
 		        
 		        //Lixo
 		        int lixoPorSemana = Integer.parseInt(textFieldLixoPorSemana.getText());
