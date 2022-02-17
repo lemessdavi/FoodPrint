@@ -133,6 +133,13 @@ public class Home extends JFrame {
 		btnEditarUsuario.setBounds(697, 615, 175, 29);
 		contentPane.add(btnEditarUsuario);
 		
+		btnEditarUsuario.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+		          Usuario selecionado = (Usuario) listUsuario.getSelectedValue();
+		          EditMorador frameEditmorador = new EditMorador(selecionado);
+		          frameEditmorador.setVisible(true)
+		          ;}
+		});
 		
 		
 		btnEditarResidencia = new JButton("Editar Residencia");
@@ -141,28 +148,11 @@ public class Home extends JFrame {
 		
 		btnEditarResidencia.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Residencia selecionada = listResidencia.getSelectedValue();
-				PerguntaSenha telaSenha = new PerguntaSenha();
-				telaSenha.setVisible(true);
-				
-				telaSenha.btnEntrar.addActionListener(new ActionListener() {
-
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						if(selecionada.getAdmin().autenticaSenha(telaSenha.getSenha())) {
-							  int index = listResidencia.getSelectedIndex();
-					          Residencia selecionada = (Residencia) listResidencia.getSelectedValue();
-					          EditResidencia frameEditResidencia = new EditResidencia(selecionada);
-					          frameEditResidencia.setVisible(true);
-						} else {
-							System.out.println("senha incorreta");
-						}
-					}
-
-				});
-
-	           
-	        }
+				int index = listResidencia.getSelectedIndex();
+		          Residencia selecionada = (Residencia) listResidencia.getSelectedValue();
+		          EditResidencia frameEditResidencia = new EditResidencia(selecionada);
+		          frameEditResidencia.setVisible(true)
+		          ;}
 		});
 		
 		// if(listResidencia.getSelectedValue().getAdmin().autenticaSenha(senha.getSelectedText()));

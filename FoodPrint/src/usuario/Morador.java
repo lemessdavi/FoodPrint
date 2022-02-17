@@ -16,6 +16,12 @@ public class Morador extends Usuario {
 		this.residencia = residencia;
 		this.transporte = transporte;
 	}
+	public Morador(String nome, Transporte transporte, Dieta dieta, Residencia residencia) {
+		this.nome = nome;
+		this.dieta = dieta;
+		this.residencia = residencia;
+		this.transporte = transporte;
+	}
 }
 
 

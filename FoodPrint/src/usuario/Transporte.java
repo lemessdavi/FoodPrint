@@ -73,5 +73,14 @@ public class Transporte {
 	public int getPontos() {
 		return pontos;
 	}
+	public double getTransportePublico() {
+		return transportePublico;
+	}
+	public double getVeiculoPessoal() {
+		return veiculoPessoal;
+	}
+	public String getVoos() {
+		return voos;
+	}
 
 }

@@ -20,6 +20,9 @@ import residencia.Lixo;
 import residencia.Reciclado;
 import residencia.Residencia;
 import javax.swing.JButton;
+import javax.swing.JPasswordField;
+import java.awt.Color;
+import java.awt.Font;
 
 public class EditResidencia extends JFrame {
 
@@ -31,6 +34,7 @@ public class EditResidencia extends JFrame {
 	private JTextField textFieldComprasPorAno;
 	private JTextField textFieldLixoPorSemana;
 	ArrayList<JCheckBox> checkBoxReciclados;
+	private JPasswordField passwordField;
 
 
 	/**
@@ -175,8 +179,23 @@ public class EditResidencia extends JFrame {
 		checkBoxReciclados.add(chckbxOrganico);
 		
 		JButton btnSalvar = new JButton("Salvar Alteracoes");
-		btnSalvar.setBounds(891, 609, 151, 29);
+		btnSalvar.setBounds(894, 625, 151, 29);
 		contentPane.add(btnSalvar);
+		
+		JLabel lblDigiteASenha = new JLabel("Digite a senha do Administrador da residencia (se houver):");
+		lblDigiteASenha.setBounds(635, 510, 496, 16);
+		contentPane.add(lblDigiteASenha);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(634, 538, 307, 37);
+		contentPane.add(passwordField);
+		
+		JLabel labelSenhaIncorreta = new JLabel("SENHA INCORRETA");
+		labelSenhaIncorreta.setFont(new Font("Lucida Grande", Font.PLAIN, 30));
+		labelSenhaIncorreta.setForeground(Color.RED);
+		labelSenhaIncorreta.setBounds(644, 586, 297, 28);
+		contentPane.add(labelSenhaIncorreta);
+		labelSenhaIncorreta.setVisible(false);
 		
 		btnSalvar.addActionListener(new ActionListener() {
 			
@@ -213,8 +232,16 @@ public class EditResidencia extends JFrame {
 		        }
 		        
 		        Reciclado reciclados = new Reciclado(selecionadas);
+		        System.out.println(residencia.getAdmin().getSenha());
+		        System.out.println(passwordField.getPassword());
 		        
-		        residencia.alterarResidencia(nomeMoradia, numeroMoradores, tamanhoResidencia, consumoAgua, comprasAno, lixo, reciclados);
+		        if(residencia.getAdmin().autenticaSenha(passwordField.getPassword())) {
+		        	residencia.alterarResidencia(nomeMoradia, numeroMoradores, tamanhoResidencia, consumoAgua, comprasAno, lixo, reciclados);
+		        } else {
+		        		labelSenhaIncorreta.setVisible(true);
+		        	
+		        }
+		        
 		        
 		        
 		    }

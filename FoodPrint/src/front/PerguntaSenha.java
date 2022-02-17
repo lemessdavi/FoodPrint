@@ -65,8 +65,8 @@ public class PerguntaSenha extends JFrame {
 		
 	}
 	
-	public String getSenha() {
-		return passwordField.getSelectedText();
+	public JPasswordField getPasswordField() {
+		return passwordField;
 	}
 
 	

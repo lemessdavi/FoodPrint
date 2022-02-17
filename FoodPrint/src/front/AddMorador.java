@@ -241,7 +241,7 @@ public class AddMorador extends JFrame {
 		    	
 		    	Usuario usuario;
 		    	if(checkboxAdmin.isSelected()) {
-		    		String senha = passwordField.toString();
+		    		char[] senha = passwordField.getPassword();
 		    		usuario = new Admin(nome, idade, transporte, dieta ,residencia, senha);
 		    		residencia.setAdmin((Admin) usuario);
 		    	} else {

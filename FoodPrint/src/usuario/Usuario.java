@@ -22,7 +22,9 @@ public abstract class Usuario {
 	public int getIdade() {
 		return idade;
 	}
-	
+	public Transporte getTransporte() {
+		return transporte;
+	}
 	public int getPontosTotais() {
 		pontosTotais = 0;
 		pontosTotais = this.residencia.getPontosResidencia() + this.dieta.getPontos() + this.transporte.getPontos();
@@ -48,6 +50,12 @@ public abstract class Usuario {
 		return nome + "      Indice de Emissao: " + getPontosTotais() + "      Mora na Residencia: " + residencia.getNomeMoradia();
 	}
 	
+	public void editUsuario(String nome, int idade, Transporte transporte, Dieta dieta) {
+		this.nome = nome;
+		this.dieta = dieta;
+		this.idade = idade;
+		this.transporte = transporte;
+	}
 	
 	
 }
