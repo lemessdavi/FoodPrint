@@ -44,5 +44,10 @@ public class Admin extends Usuario {
 		return senha;
 	}
 	
+	@Override
+	public String getNome() {
+		return nome + " (admin)";
+	}
+	
 }
 

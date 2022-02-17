@@ -28,6 +28,7 @@ import java.awt.Component;
 import java.awt.SystemColor;
 import javax.swing.UIManager;
 import javax.swing.SwingConstants;
+import javax.swing.JTextArea;
 
 public class Home extends JFrame {
 
@@ -46,6 +47,8 @@ public class Home extends JFrame {
 	private JButton btnEditarUsuario;
 	private JButton btnEditarResidencia;
 	private JButton btnRemoverUsuario;
+	private JButton btnVerDetalhes;
+	private JTextPane textPane;
 
 	/**
 	 * Launch the application.
@@ -85,6 +88,7 @@ public class Home extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				AddResidencia frame = new AddResidencia();
 				frame.setVisible(true);
+				
 				
 			}
 		});
@@ -163,7 +167,7 @@ public class Home extends JFrame {
 		JTextPane txtpnOqueQuerDizer_1 = new JTextPane();
 		txtpnOqueQuerDizer_1.setBackground(new Color(238, 238, 238));
 		txtpnOqueQuerDizer_1.setToolTipText("");
-		txtpnOqueQuerDizer_1.setText("Resumindo, quanto menos, melhor! \n\n\n-> Abaixo de 60 pontos de índice, você está mais ajudando o meio-ambiente do que poluindo!\n\n\n\n-> A quantidade máxma estimada* de pontos é de 150. \n\n\n\n* Porém, é praticamente impossível apenas um ser humano conseguir poluir tanto tendo em vista que essa quantidade de pontos é de porporções de empresas e indústrias.");
+		txtpnOqueQuerDizer_1.setText("Resumindo, quanto menos, melhor! \n\n\n-> Abaixo de 65 pontos de índice, você está mais ajudando o meio-ambiente do que poluindo!\n\n-> Buscar se manter entre 60 e 75 é o ideal pra o meio ambiete.\n\n-> A quantidade máxima estimada* de pontos é de 175. \n\n* Porém, é praticamente impossível apenas um ser humano conseguir poluir tanto tendo em vista que um estilo de vida deste seria muito caro.");
 		txtpnOqueQuerDizer_1.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
 		txtpnOqueQuerDizer_1.setEditable(false);
 		txtpnOqueQuerDizer_1.setBounds(895, 200, 326, 393);
@@ -171,8 +175,40 @@ public class Home extends JFrame {
 		txtpnOqueQuerDizer_1.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		
 		btnRemoverUsuario = new JButton("Remover Usuario");
-		btnRemoverUsuario.setBounds(534, 656, 175, 29);
+		btnRemoverUsuario.setBounds(442, 656, 175, 29);
 		contentPane.add(btnRemoverUsuario);
+		
+		btnVerDetalhes = new JButton("Ver Detalhes");
+		btnVerDetalhes.setBounds(640, 656, 175, 29);
+		contentPane.add(btnVerDetalhes);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setEditable(false);
+		textArea.setBounds(870, 172, 371, 438);
+		contentPane.add(textArea);
+		textArea.hide();
+		
+		
+		btnVerDetalhes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+		          int selecionadoIndex = listUsuario.getSelectedIndex();
+		          Usuario selecionado = (Usuario) listUsuario.getSelectedValue();
+		          textArea.removeAll();
+		          textArea.setText(selecionado.getNome() + "\n" + "\n" + selecionado.getDieta().toString() +
+		        		  "\n" + selecionado.getTransporte().toString()+ "\n"+ "\n" + "Mora em: " + selecionado.getResidencia().toString() + "\n" +
+		        		  "Pontos vindos de Residencia: " + selecionado.getResidencia().getPontosResidencia()+ ", onde:"
+		        		  + "\n" + "Por conta do número de moradores: " + selecionado.getResidencia().getPontosNumeroMoradores()
+		        		  + "\n" + "Por conta do tamanho da residencia: " + selecionado.getResidencia().getPontosNumeroResidencia()
+		        		  + "\n" + selecionado.getResidencia().getConsumoAgua().toString() + "\n" + selecionado.getResidencia().getCompras().toString()
+		        		  + "\n" + selecionado.getResidencia().getLixo().toString() + "\n" + selecionado.getResidencia().getLixoReciclado().toString());
+		          			
+		          txtpnOqueQuerDizer_1.hide();
+		          lblOQueQuer.hide();
+		          textArea.show();
+		       
+		          
+		          ;}
+		});
 		
 		btnRemoverUsuario.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

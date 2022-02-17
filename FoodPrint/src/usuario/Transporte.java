@@ -82,5 +82,10 @@ public class Transporte {
 	public String getVoos() {
 		return voos;
 	}
+	
+	@Override
+	public String toString() {
+		return "Pontos por transporte: " +pontos;
+    } 
 
 }

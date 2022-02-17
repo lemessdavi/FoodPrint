@@ -30,7 +30,7 @@ public class Residencia {
 		return getPontosNumeroMoradores() + getPontosNumeroResidencia() + consumoAgua.getPontos() + compras.getPontos() + lixo.getPontos() + lixoReciclado.getPontos();
 	}
 	
-	private int getPontosNumeroMoradores() {
+	public int getPontosNumeroMoradores() {
 		if (numeroMoradores > 6) {
 			return 2;
 		} 

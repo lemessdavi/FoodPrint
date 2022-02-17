@@ -83,6 +83,9 @@ public class Dieta {
 		pontosDieta();
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Pontos por dieta: " +pontos;
+    } 
 	
 }

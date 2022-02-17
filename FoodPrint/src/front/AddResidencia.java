@@ -210,10 +210,22 @@ public class AddResidencia extends JFrame {
 		        
 		        
 		        //Agua
+		        System.out.println(textFieldLavaLouca.getText());
+				System.out.println(textFieldLavaRoupas.getText());
+				
 		        int consumoLavaLouca = Integer.parseInt(textFieldLavaLouca.getText()); 
 		        int consumoLavaRoupa = Integer.parseInt(textFieldLavaRoupas.getText());
-		        
+		        System.out.println("------");
+		        System.out.println(consumoLavaLouca);
+				System.out.println(consumoLavaRoupa);
+				
 		        Agua consumoAgua = new Agua(consumoLavaRoupa, consumoLavaLouca);
+		        
+		        System.out.println("------");
+		        System.out.println(consumoAgua.getLavaLouca());
+				System.out.println(consumoAgua.getLavaRoupa());
+				System.out.println("------");
+			    System.out.println(consumoAgua.getPontos());
 		        
 		        // Compras
 		        int comprasPorAno = Integer.parseInt(textFieldComprasPorAno.getText());

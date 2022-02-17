@@ -235,17 +235,17 @@ public class EditResidencia extends JFrame {
 		        }
 		        
 		        Reciclado reciclados = new Reciclado(selecionadas);
-		        System.out.println(residencia.getAdmin().getSenha());
-		        System.out.println(passwordField.getPassword());
-		        
+		        try {
 		        if(residencia.getAdmin().autenticaSenha(passwordField.getPassword())) {
 		        	residencia.alterarResidencia(nomeMoradia, numeroMoradores, tamanhoResidencia, consumoAgua, comprasAno, lixo, reciclados);
 		        	 dispose();
 		        } else {
 		        		labelSenhaIncorreta.setVisible(true);
 		        	
+		        }} catch (NullPointerException ex) {
+		        	residencia.alterarResidencia(nomeMoradia, numeroMoradores, tamanhoResidencia, consumoAgua, comprasAno, lixo, reciclados);
+		        	 dispose();
 		        }
-		        
 		       
 		        
 		    }

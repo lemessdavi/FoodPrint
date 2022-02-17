@@ -22,4 +22,9 @@ public class Reciclado {
 		return pontos;
 		
 	}
+	
+	@Override
+	public String toString() {
+		return "Pontos por reciclagem " +pontos;
+    } 
 }

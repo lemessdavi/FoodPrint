@@ -30,4 +30,9 @@ public class Lixo {
 	public int getLixeiraPorSemana() {
 		return lixeiraPorSemana;
 	}
+	
+	@Override
+	public String toString() {
+		return "Lixo por semana pontos: " +pontos;
+    } 
 }

@@ -43,6 +43,12 @@ public class Compra {
 		return comprasPorAno;
 	}
 	
+	@Override
+	public String toString() {
+		return "Compras por ano pontos: " +pontos;
+    } 
+	
+	
 	//somente o admin pode alterar
 	
 	public void setComprasPorAno(int comprasPorAno) {

@@ -15,9 +15,7 @@ public abstract class Usuario {
 	protected Transporte transporte;
 	static Repositorio repo;
 	
-	public String getNome() {
-		return nome;
-	}
+	public abstract String getNome();
 	
 	public int getIdade() {
 		return idade;

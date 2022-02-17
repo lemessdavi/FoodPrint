@@ -22,7 +22,14 @@ public class Morador extends Usuario {
 		this.residencia = residencia;
 		this.transporte = transporte;
 	}
+	
+	@Override
+	public String getNome() {
+		return nome;
+	}
 }
+
+
 
 
 // fazer com que o numeoro de pessoas que moram na casa seja = a o numero de (moradores + admin)
